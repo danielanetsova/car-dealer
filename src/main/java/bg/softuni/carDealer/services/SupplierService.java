@@ -26,7 +26,7 @@ public class SupplierService {
     }
 
     public Supplier getRandomSupplier() {
-        //съплайърите са 31 в базата но понеже границата на метода nextInt() е exclusive слагаме 32
+        // The count of suppliers in the database is 31 and because nextInt() bound is exclusive 32 is put.
         int randomId = new Random().nextInt(1, 32);
         Optional<Supplier> byId = this.supplierRepository.findById(randomId);
         return byId.orElse(null);
