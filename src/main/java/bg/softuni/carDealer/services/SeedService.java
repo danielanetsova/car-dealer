@@ -24,7 +24,8 @@ public class SeedService {
     private final ModelMapper modelMapper;
 
     @Autowired
-    public SeedService(SupplierService supplierService, PartService partService, CarService carService, CustomerService customerService, SaleService saleService, ModelMapper modelMapper) {
+    public SeedService(SupplierService supplierService, PartService partService, CarService carService,
+                       CustomerService customerService, SaleService saleService, ModelMapper modelMapper) {
         this.supplierService = supplierService;
         this.partService = partService;
         this.carService = carService;
