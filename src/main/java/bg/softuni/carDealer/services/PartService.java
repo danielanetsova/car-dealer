@@ -40,7 +40,7 @@ public class PartService {
     }
 
     private Part getRandomPart() {
-        //частите са 131 в базата но понеже границата на метода nextInt() е exclusive слагаме 132
+        // The count of parts in the database is 131 and because nextInt() bound is exclusive 132 is put. 
         int randomId = new Random().nextInt(1, 132);
         Optional<Part> byId = this.partRepository.findById(randomId);
         return byId.orElse(null);
