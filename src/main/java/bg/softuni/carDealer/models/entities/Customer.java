@@ -38,4 +38,16 @@ public class Customer {
     public void setYoungDriver(Boolean youngDriver) {
         isYoungDriver = youngDriver;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LocalDateTime getBirthDate() {
+        return birthDate;
+    }
 }

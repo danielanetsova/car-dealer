@@ -47,8 +47,8 @@ public class SeedService {
         if(supplierService.isDataSeeded()) return;
 
         List<SupplierImportDto> supplierImportDtos = textFormat.equals("json") ?
-                JsonParser.fromJsonFile(Constants.SUPPLIERS_JSON_FILE_PATH, SupplierImportDto[].class) :
-                XmlParser.fromXmlFile(Constants.SUPPLIERS_XML_FILE_PATH, SupplierImportDtoWrapper.class)
+                JsonParser.fromJsonFile(Constants.SUPPLIERS_JSON_INPUT_FILE_PATH, SupplierImportDto[].class) :
+                XmlParser.fromXmlFile(Constants.SUPPLIERS_XML_INPUT_FILE_PATH, SupplierImportDtoWrapper.class)
                         .getSupplierImportDtos();
 
         for (SupplierImportDto supplierImportDto : supplierImportDtos) {
@@ -62,8 +62,8 @@ public class SeedService {
         if (this.partService.isDataSeeded()) return;
 
         List<PartImportDto> partImportDtos = textFormat.equals("json") ? JsonParser
-                .fromJsonFile(Constants.PARTS_JSON_FILE_PATH, PartImportDto[].class) :
-                XmlParser.fromXmlFile(Constants.PARTS_XML_FILE_PATH, PartImportDtoWrapper.class).getPartImportDtos();
+                .fromJsonFile(Constants.PARTS_JSON_INPUT_FILE_PATH, PartImportDto[].class) :
+                XmlParser.fromXmlFile(Constants.PARTS_XML_INPUT_FILE_PATH, PartImportDtoWrapper.class).getPartImportDtos();
 
         for (PartImportDto partImportDto : partImportDtos) {
             Part part = this.modelMapper.map(partImportDto, Part.class);
@@ -76,8 +76,8 @@ public class SeedService {
         if (carService.isDataSeeded()) return;
 
         List<CarImportDto> carImportDtos = textFormat.equals("json") ? JsonParser
-                .fromJsonFile(Constants.CARS_JSON_FILE_PATH, CarImportDto[].class) :
-                XmlParser.fromXmlFile(Constants.CARS_XML_FILE_PATH, CarImportDtoWrapper.class).getCarImportDtos();
+                .fromJsonFile(Constants.CARS_JSON_INPUT_FILE_PATH, CarImportDto[].class) :
+                XmlParser.fromXmlFile(Constants.CARS_XML_INPUT_FILE_PATH, CarImportDtoWrapper.class).getCarImportDtos();
 
         for (CarImportDto carImportDto : carImportDtos) {
             Car car = this.modelMapper.map(carImportDto, Car.class);
@@ -89,8 +89,8 @@ public class SeedService {
         if (this.customerService.isDataSeeded()) return;
 
         List<CustomerImportDto> customerImportDtos = textFormat.equals("json") ? JsonParser
-                .fromJsonFile(Constants.CUSTOMERS_JSON_FILE_PATH, CustomerImportDto[].class) :
-                XmlParser.fromXmlFile(Constants.CUSTOMERS_XML_FILE_PATH, CustomerImportDtoWrapper.class)
+                .fromJsonFile(Constants.CUSTOMERS_JSON_INPUT_FILE_PATH, CustomerImportDto[].class) :
+                XmlParser.fromXmlFile(Constants.CUSTOMERS_XML_INPUT_FILE_PATH, CustomerImportDtoWrapper.class)
                         .getCustomerImportDtos();
 
         for (CustomerImportDto customerImportDto : customerImportDtos) {

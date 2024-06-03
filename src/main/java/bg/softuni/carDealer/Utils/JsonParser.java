@@ -21,7 +21,7 @@ public class JsonParser {
         }
     }
 
-    public static  <T> void toJsonFile(String filePath, List<T> listOfObjects) {
+    public static <T> void toJsonFile(String filePath, List<T> listOfObjects) {
         try (FileWriter fileWriter = new FileWriter(filePath)) {
             GSON.toJson(listOfObjects, fileWriter);
         } catch (IOException e) {
