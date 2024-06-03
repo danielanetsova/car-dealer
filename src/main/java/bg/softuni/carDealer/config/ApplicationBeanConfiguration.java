@@ -38,7 +38,6 @@ public class ApplicationBeanConfiguration {
             @Override
             public String convert(MappingContext<LocalDateTime, String> context) {
                 LocalDateTime source = context.getSource();
-//                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
                 DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss");
                 return source.format(dateTimeFormatter);
             }
