@@ -35,11 +35,11 @@ public class SaleExportDto implements Serializable {
     public SaleExportDto() {}
 
     public SaleExportDto(CarExportDto carDto, String customerName, String discountPercentage,
-                         BigDecimal price, BigDecimal priceWithDiscount) {
+                         BigDecimal price, Object priceWithDiscount) {
         this.carDto = carDto;
         this.customerName = customerName;
         this.discountPercentage = discountPercentage;
         this.price = price;
-        this.priceWithDiscount = priceWithDiscount;
+        this.priceWithDiscount = (BigDecimal) priceWithDiscount;
     }
 }

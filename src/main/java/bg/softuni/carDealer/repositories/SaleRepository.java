@@ -30,15 +30,19 @@ public interface SaleRepository extends JpaRepository<Sale, Integer> {
             """)
     public List<TotalSalesByCustomerDto> findCountOfCarsBoughtAndMoneySpentByCustomers();
 
+
     @Query("""
             SELECT new bg.softuni.carDealer.models.dtos.SaleDtoWithCarPrice(
-            ca.make, ca.model, ca.travelledDistance, cu.name, s.discountPercentage, SUM(p.price),
-            (SUM(p.price) - s.discountPercentage / 100 * SUM(p.price)))
-            FROM Sale s
-            JOIN s.customer cu
-            JOIN s.car ca
-            JOIN ca.parts p
-            GROUP BY ca.id
+                        ca.make, ca.model, ca.travelledDistance, cu.name, s.discountPercentage, SUM(p.price),
+            			IF(cu.isYoungDriver = true,
+            			((SUM(p.price) - s.discountPercentage / 100 * SUM(p.price)) - (SUM(p.price) - s.discountPercentage / 100 * SUM(p.price)) * 0.05),
+            			(SUM(p.price) - s.discountPercentage / 100 * SUM(p.price))))
+                        FROM Sale s
+                        JOIN s.customer cu
+                        JOIN s.car ca
+                        JOIN ca.parts p
+                        GROUP BY ca.id
             """)
+    //Young drivers get an additional 5% off for the sale
     public List<SaleDtoWithCarPrice> findAllSales();
 }

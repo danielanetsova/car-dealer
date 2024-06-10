@@ -10,10 +10,10 @@ public class SaleDtoWithCarPrice {
     private String customerName;
     private Integer discountPercentage;
     private BigDecimal price;
-    private BigDecimal priceWithDiscount;
+    private Object priceWithDiscount;
 
     public SaleDtoWithCarPrice(String carMake, String carModel, BigInteger carTravelledDistance,
-                               String customerName, Integer discountPercentage, BigDecimal price, BigDecimal priceWithDiscount) {
+                               String customerName, Integer discountPercentage, BigDecimal price, Object priceWithDiscount) {
         this.carMake = carMake;
         this.carModel = carModel;
         this.carTravelledDistance = carTravelledDistance;
