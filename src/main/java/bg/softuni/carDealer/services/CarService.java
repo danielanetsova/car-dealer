@@ -2,10 +2,10 @@ package bg.softuni.carDealer.services;
 
 import bg.softuni.carDealer.models.entities.Car;
 import bg.softuni.carDealer.repositories.CarRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -32,4 +32,11 @@ public class CarService {
         return carRepository.findCarWithContainedParts(randomId);
     }
 
+    public List<Car> getCarsFromMakeToyota()  {
+        return carRepository.findCarByMakeOrderByModelAscTravelledDistanceDesc("Toyota");
+    }
+
+    public List<Car> getAllCarsWithTheirParts() {
+        return carRepository.findAllCarsWithTheirParts();
+    }
 }

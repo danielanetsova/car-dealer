@@ -2,9 +2,11 @@ package bg.softuni.carDealer.models.dtos;
 
 import jakarta.xml.bind.annotation.*;
 
+import java.io.Serializable;
+
 @XmlRootElement(name = "customer")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CustomerImportDto {
+public class CustomerImportDto implements Serializable {
     @XmlAttribute
     private String name;
 

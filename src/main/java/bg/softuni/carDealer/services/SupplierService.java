@@ -1,10 +1,12 @@
 package bg.softuni.carDealer.services;
 
+import bg.softuni.carDealer.models.dtos.LocalSupplierDto;
 import bg.softuni.carDealer.models.entities.Supplier;
 import bg.softuni.carDealer.repositories.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -30,5 +32,9 @@ public class SupplierService {
         int randomId = new Random().nextInt(1, 32);
         Optional<Supplier> byId = this.supplierRepository.findById(randomId);
         return byId.orElse(null);
+    }
+
+    public List<LocalSupplierDto> getLocalSuppliers() {
+        return supplierRepository.findLocalSuppliersAndCountOfTheirParts();
     }
 }

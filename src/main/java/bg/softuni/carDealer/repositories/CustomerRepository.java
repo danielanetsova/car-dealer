@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+
     @Query("""
             FROM Customer c
             ORDER BY c.birthDate, c.isYoungDriver

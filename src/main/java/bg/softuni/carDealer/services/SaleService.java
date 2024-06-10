@@ -1,5 +1,7 @@
 package bg.softuni.carDealer.services;
 
+import bg.softuni.carDealer.models.dtos.SaleDtoWithCarPrice;
+import bg.softuni.carDealer.models.dtos.TotalSalesByCustomerDto;
 import bg.softuni.carDealer.models.entities.Sale;
 import bg.softuni.carDealer.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +34,13 @@ public class SaleService {
         Random random = new Random();
         int randomIndexOfDiscountsList = random.nextInt(0, discounts.size());
         return discounts.get(randomIndexOfDiscountsList);
+    }
+
+    public List<TotalSalesByCustomerDto> getCountOfCarsBoughtAndMoneySpentByCustomers() {
+        return saleRepository.findCountOfCarsBoughtAndMoneySpentByCustomers();
+    }
+
+    public List<SaleDtoWithCarPrice> getAllSales() {
+        return this.saleRepository.findAllSales();
     }
 }

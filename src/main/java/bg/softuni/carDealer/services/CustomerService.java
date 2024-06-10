@@ -1,6 +1,5 @@
 package bg.softuni.carDealer.services;
 
-import bg.softuni.carDealer.models.dtos.CustomerExportDto;
 import bg.softuni.carDealer.models.entities.Customer;
 import bg.softuni.carDealer.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

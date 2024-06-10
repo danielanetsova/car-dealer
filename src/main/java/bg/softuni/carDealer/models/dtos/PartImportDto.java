@@ -5,10 +5,11 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 @XmlRootElement(name = "part")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class PartImportDto {
+public class PartImportDto implements Serializable {
     @XmlAttribute
     private String name;
 

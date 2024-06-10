@@ -43,7 +43,7 @@ public class SeedService {
     };
 
 
-    public void seedSuppliers(String textFormat){
+    private void seedSuppliers(String textFormat){
         if(supplierService.isDataSeeded()) return;
 
         List<SupplierImportDto> supplierImportDtos = textFormat.equals("json") ?
@@ -58,12 +58,13 @@ public class SeedService {
     };
 
 
-    public void seedParts(String textFormat){
+    private void seedParts(String textFormat){
         if (this.partService.isDataSeeded()) return;
 
         List<PartImportDto> partImportDtos = textFormat.equals("json") ? JsonParser
                 .fromJsonFile(Constants.PARTS_JSON_INPUT_FILE_PATH, PartImportDto[].class) :
-                XmlParser.fromXmlFile(Constants.PARTS_XML_INPUT_FILE_PATH, PartImportDtoWrapper.class).getPartImportDtos();
+                XmlParser.fromXmlFile(Constants.PARTS_XML_INPUT_FILE_PATH, PartImportDtoWrapper.class)
+                        .getPartImportDtos();
 
         for (PartImportDto partImportDto : partImportDtos) {
             Part part = this.modelMapper.map(partImportDto, Part.class);
@@ -72,7 +73,7 @@ public class SeedService {
         }
     };
 
-    public void seedCars(String textFormat) {
+    private void seedCars(String textFormat) {
         if (carService.isDataSeeded()) return;
 
         List<CarImportDto> carImportDtos = textFormat.equals("json") ? JsonParser
@@ -85,7 +86,7 @@ public class SeedService {
             carService.saveCar(car);
         }
     }
-    public void seedCustomers(String textFormat){
+    private void seedCustomers(String textFormat){
         if (this.customerService.isDataSeeded()) return;
 
         List<CustomerImportDto> customerImportDtos = textFormat.equals("json") ? JsonParser
@@ -99,7 +100,7 @@ public class SeedService {
         }
     };
 
-    public void seedSales() {
+    private void seedSales() {
         if (this.saleService.isDataSeeded()) return;
         
         Set<Car> soldCars = new HashSet<>();

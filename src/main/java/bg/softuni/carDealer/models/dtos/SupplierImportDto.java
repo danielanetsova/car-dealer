@@ -5,9 +5,11 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+import java.io.Serializable;
+
 @XmlRootElement(name = "supplier")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class SupplierImportDto {
+public class SupplierImportDto implements Serializable {
     @XmlAttribute
     private String name;
 

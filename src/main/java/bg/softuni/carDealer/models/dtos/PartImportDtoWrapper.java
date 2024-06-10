@@ -5,10 +5,12 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+import java.io.Serializable;
 import java.util.List;
 @XmlRootElement(name = "parts")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class PartImportDtoWrapper {
+public class PartImportDtoWrapper implements Serializable {
+
     @XmlElement(name = "part")
     private List<PartImportDto> partImportDtos;
 

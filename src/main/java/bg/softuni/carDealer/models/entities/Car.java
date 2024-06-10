@@ -1,12 +1,9 @@
 package bg.softuni.carDealer.models.entities;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -23,7 +20,7 @@ public class Car {
     @Basic
     private String model;
 
-    @Column(name = "traveled_distance")
+    @Column(name = "travelled_distance")
     private BigInteger travelledDistance;
 
     @ManyToMany
@@ -35,15 +32,6 @@ public class Car {
 
     private Car() {
         this.parts = new HashSet<>();
-    }
-
-    private BigDecimal getCarPrice() {
-        // A price of a car is formed by the total price of its parts.
-        return this.parts.isEmpty() ? BigDecimal.ZERO :
-                this.parts.stream()
-                .map(Part::getPrice)
-                .filter(Objects::nonNull)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public void addPart(Part part) {
@@ -82,5 +70,25 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(id, make, model, travelledDistance, parts);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public BigInteger getTravelledDistance() {
+        return travelledDistance;
+    }
+
+    public Set<Part> getParts() {
+        return parts;
     }
 }

@@ -24,4 +24,11 @@ public class Sale {
         this.discountPercentage = discountPercentage;
     }
 
+    public Car getCar() {
+        return car;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
 }

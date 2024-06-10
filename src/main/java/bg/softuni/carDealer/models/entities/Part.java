@@ -3,9 +3,7 @@ package bg.softuni.carDealer.models.entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "parts")
@@ -26,9 +24,6 @@ public class Part {
     @ManyToOne
     @JoinColumn(name = "supplier_id", referencedColumnName = "id")
     private Supplier supplier;
-
-//    @ManyToMany(mappedBy = "parts", targetEntity = Car.class)
-//    private Set<Car> cars;
 
     public Part() {}
 
@@ -65,4 +60,10 @@ public class Part {
     public int hashCode() {
         return Objects.hash(id, name, price, quantity, supplier);
     }
+
+    public String getName() {
+        return name;
+    }
+
+
 }

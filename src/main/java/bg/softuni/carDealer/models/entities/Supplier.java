@@ -1,6 +1,5 @@
 package bg.softuni.carDealer.models.entities;
 
-import com.google.gson.annotations.SerializedName;
 import jakarta.persistence.*;
 
 import java.util.Objects;

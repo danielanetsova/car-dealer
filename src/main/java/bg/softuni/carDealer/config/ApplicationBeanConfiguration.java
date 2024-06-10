@@ -1,6 +1,10 @@
 package bg.softuni.carDealer.config;
 
+import bg.softuni.carDealer.models.dtos.CarExportDto;
+import bg.softuni.carDealer.models.dtos.SaleDtoWithCarPrice;
+import bg.softuni.carDealer.models.dtos.SaleExportDto;
 import bg.softuni.carDealer.models.dtos.SupplierImportDto;
+import bg.softuni.carDealer.models.entities.Sale;
 import bg.softuni.carDealer.models.entities.Supplier;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
@@ -31,6 +35,7 @@ public class ApplicationBeanConfiguration {
             public LocalDateTime convert(MappingContext<String, LocalDateTime> context) {
                 String source = context.getSource();
                 return LocalDateTime.parse(source, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
+                //uuuu-MM-dd'T'HH:mm:ss
             }
         });
 
